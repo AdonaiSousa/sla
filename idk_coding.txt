@@ -1,0 +1,37 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.UI;
+
+[DebuggerDisplay($@"{{{nameof(GetDebuggerDisplay())}(),nq}}")]
+public class chat : MonoBehaviour
+{
+   
+    
+
+   
+    
+    public void Send(string message)
+    {
+        string NewMsg = nome + ": " + message + "\n";
+        message.Add(message);
+        mensagem.text += message;
+        InputChat.ActivateInputField();
+        InputChat.text = "";
+    }
+
+    public void SendChat()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            string text = InputChat.text;
+            Send(text);
+        }
+    }
+
+    private string GetDebuggerDisplay()
+    {
+        return this.ToString();
+    }
+}
